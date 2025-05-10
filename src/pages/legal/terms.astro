@@ -1,0 +1,109 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TermsOfServicePage from '../../components/legal/TermsOfServicePage.tsx';
+
+const title = 'Terms of Service';
+const lastUpdated = 'May 15, 2023';
+const markdownContent = `
+# Terms of Service
+
+## Introduction
+
+These Terms of Service ("Terms") govern your access to and use of the SongWorld application and website (collectively, the "Service"), operated by SongWorld ("we," "us," or "our").
+
+By accessing or using the Service, you agree to be bound by these Terms. If you do not agree to these Terms, you may not access or use the Service.
+
+## Eligibility
+
+You must be at least 13 years old to use the Service. By using the Service, you represent that you meet this requirement and that you are not barred from receiving services under applicable law.
+
+## Your Account
+
+When you create an account, you must provide accurate and complete information. You are responsible for maintaining the security of your account and password. We cannot and will not be liable for any loss or damage resulting from your failure to comply with this security obligation.
+
+## User Content
+
+### Content Ownership
+
+The Service allows you to create, upload, store, and share content, including but not limited to songs, lyrics, chords, tablature, and audio recordings ("User Content"). You retain ownership of any intellectual property rights you hold in that User Content.
+
+### Content License
+
+When you upload or share User Content through the Service, you grant us a worldwide, non-exclusive, royalty-free license to use, reproduce, modify, adapt, publish, translate, distribute, and display such User Content solely for the purpose of providing and improving the Service.
+
+### Content Restrictions
+
+You agree not to upload, share, or otherwise use User Content that:
+
+* Infringes on the copyright, trademark, or other intellectual property rights of others
+* Violates the privacy or publicity rights of others
+* Is unlawful, defamatory, obscene, offensive, threatening, abusive, or otherwise objectionable
+* Contains malware, viruses, or other harmful code
+* Interferes with the operation of the Service or imposes an unreasonable load on our infrastructure
+
+We reserve the right to remove any User Content that violates these Terms or that we deem inappropriate at our sole discretion.
+
+## Subscriptions and Payments
+
+### Subscription Services
+
+We offer both free and paid subscription plans. The features available to you depend on the type of subscription you choose.
+
+### Payment Terms
+
+If you choose a paid subscription, you agree to pay all fees charged to your account based on the pricing and billing terms presented to you at the time of purchase. You are responsible for providing complete and accurate billing information.
+
+### Subscription Renewals
+
+Paid subscriptions automatically renew until canceled. You can cancel your subscription at any time through your account settings or by contacting us.
+
+### Refunds
+
+Refunds are handled in accordance with the app store or payment processor through which you purchased your subscription. We do not process refunds directly.
+
+## Intellectual Property
+
+The Service and its original content, features, and functionality are and will remain the exclusive property of SongWorld and its licensors. The Service is protected by copyright, trademark, and other laws.
+
+## Prohibited Activities
+
+You agree not to:
+
+* Use the Service for any illegal purpose or in violation of any local, state, national, or international law
+* Violate or encourage others to violate the rights of third parties, including intellectual property rights
+* Attempt to interfere with, compromise the security of, or disrupt the Service
+* Engage in any data mining, scraping, or similar data gathering activities
+* Impersonate another person or entity or misrepresent your affiliation with a person or entity
+* Use the Service in any manner that could disable, overburden, damage, or impair the site
+
+## Termination
+
+We may terminate or suspend your account and access to the Service immediately, without prior notice or liability, for any reason, including if you breach these Terms.
+
+## Disclaimer of Warranties
+
+The Service is provided on an "as is" and "as available" basis. We expressly disclaim all warranties of any kind, whether express or implied, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, and non-infringement.
+
+## Limitation of Liability
+
+In no event shall we be liable for any indirect, incidental, special, consequential, or punitive damages, including loss of profits, data, or goodwill, arising out of or in connection with your access to or use of the Service.
+
+## Changes to These Terms
+
+We may revise these Terms at any time by updating this page. By continuing to access or use the Service after those revisions become effective, you agree to be bound by the revised Terms.
+
+## Governing Law
+
+These Terms shall be governed by and construed in accordance with the laws of [Your Jurisdiction], without regard to its conflict of law provisions.
+
+## Contact Us
+
+If you have any questions about these Terms, please contact us at:
+
+Email: support@songworld.app
+`;
+---
+
+<Layout title={title} description="Song World Terms of Service">
+  <TermsOfServicePage client:load title={title} lastUpdated={lastUpdated} markdownContent={markdownContent} />
+</Layout>

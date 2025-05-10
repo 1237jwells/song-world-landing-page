@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro';
+import StorePage from '../components/StorePage.tsx';
+
+const pageTitle = "Store | Song World";
+const pageDescription = "Browse Song World subscriptions, merchandise, and other resources in our official store.";
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <StorePage client:load />
+</Layout> 

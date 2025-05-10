@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactUs from '../components/ContactUs.tsx';
+
+const pageTitle = "Contact Us | Song World";
+const pageDescription = "Get in touch with the Song World team. We'd love to hear your feedback, answer your questions, or provide support.";
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <ContactUs client:load />
+</Layout> 

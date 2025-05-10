@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BlogPage from '../components/BlogPage.tsx';
+
+const pageTitle = "Blog | Song World";
+const pageDescription = "Explore articles, tips, and insights for musicians and songwriters on the Song World blog.";
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <BlogPage client:load />
+</Layout> 

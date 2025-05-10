@@ -1,0 +1,132 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import DataUsagePolicyPage from '../../components/legal/DataUsagePolicyPage.tsx';
+
+const title = 'Data Usage & Retention Policy';
+const lastUpdated = 'May 15, 2023';
+const markdownContent = `
+# Data Usage & Retention Policy
+
+## Introduction
+
+At SongWorld, we are committed to being transparent about how we collect, use, and store your data. This Data Usage and Retention Policy explains our practices regarding the data we collect when you use our application and website (collectively, the "Service").
+
+## Types of Data We Collect
+
+### User Account Data
+
+* Basic account information (name, email, password hash)
+* Profile information (display name, profile picture)
+* Account preferences and settings
+* Subscription status and payment history (we do not store complete payment details)
+
+### User-Generated Content
+
+* Songs (lyrics, chords, tablature)
+* Albums and song organization
+* Audio recordings
+* Images (album art, song covers)
+* Collaboration settings and shared content
+
+### Usage Data
+
+* App interaction data (features used, time spent in app)
+* Performance metrics (app crashes, load times)
+* Device information (device type, operating system version)
+* Log data (access times, error logs)
+
+## How We Use Your Data
+
+### Essential Services
+
+* Providing access to your songs and recordings
+* Enabling collaboration features
+* Processing payments for premium features
+* Syncing your content across devices
+
+### Service Improvement
+
+* Analyzing usage patterns to improve features
+* Identifying and fixing bugs
+* Optimizing app performance
+* Developing new features based on user behavior
+
+### Communication
+
+* Service announcements and updates
+* Responding to support requests
+* Marketing communications (with your consent)
+* Billing notifications
+
+## Data Storage
+
+### Cloud Storage
+
+* User-generated content is stored in secure cloud servers
+* Content is encrypted during transfer and at rest
+* Premium users receive additional cloud storage allocation
+* Audio recordings are only uploaded to cloud storage with explicit user action
+
+### Local Storage
+
+* App settings and preferences
+* Content cached for offline access
+* Audio recordings (stored locally by default)
+* Temporary files for app functioning
+
+## Data Retention
+
+### Active Accounts
+
+We retain your data for as long as your account remains active to provide you with the Service.
+
+### Account Deletion
+
+When you delete your account:
+* Personal information is deleted within 30 days
+* User-generated content is deleted within 90 days
+* Anonymized usage data may be retained for analytics purposes
+
+### Inactive Accounts
+
+* Free accounts inactive for 12+ months may be flagged for potential deletion
+* We will send notification emails before taking any action
+* Premium accounts remain active for the duration of the paid subscription
+
+## Data Backup
+
+* User data is regularly backed up to prevent loss
+* Backups are encrypted and stored securely
+* Backup retention period: 90 days
+
+## Your Data Control Rights
+
+You have the right to:
+* Access your personal data
+* Correct inaccurate data
+* Export your data in standard formats
+* Delete your account and associated data
+* Restrict certain types of data processing
+
+## Third-Party Service Providers
+
+We use select third-party service providers to help us deliver the Service. These providers:
+* Only receive the data necessary to perform their specific functions
+* Are contractually obligated to protect your data
+* Cannot use your data for their own purposes
+* Must comply with applicable data protection laws
+
+## Changes to This Policy
+
+We may update this Data Usage and Retention Policy from time to time. We will notify you of any changes by posting the new policy on our website and updating the "Last Updated" date.
+
+## Contact Us
+
+If you have questions about your data or this policy, please contact us at:
+
+Email: support@songworld.app
+`;
+
+<Layout title={title} description="Song World Data Usage & Retention Policy">
+  <DataUsagePolicyPage client:load title={title} lastUpdated={lastUpdated} markdownContent={markdownContent} />
+</Layout>

@@ -1,11 +1,42 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import LandingTitle from '../components/LandingTitle.tsx';
+import Features from '../components/Features.tsx';
+import AboutUs from '../components/AboutUs.tsx';
+import BlogPage from '../components/BlogPage.tsx';
+import StorePage from '../components/StorePage.tsx';
+import ContactUs from '../components/ContactUs.tsx';
 
+const pageTitle = "Song World | Your Ultimate Songwriting Companion";
+const pageDescription = "Capture, craft, and perfect your songs with Song World. The intuitive SaaS platform for musicians and artists, blending note-taking with powerful songwriting tools.";
+// Any existing comments can remain, or you can remove them.
+// For example, the original comments:
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout title={pageTitle} description={pageDescription}>
+  <section id="hero">
+    <LandingTitle client:visible />
+  </section>
+
+  <section id="features">
+    <Features client:visible />
+  </section>
+
+  <section id="about" class="py-10 md:py-16">
+    <AboutUs client:visible />
+  </section>
+
+  <section id="blog" class="py-10 md:py-16">
+    <BlogPage client:visible />
+  </section>
+
+  <section id="store" class="py-10 md:py-16">
+    <StorePage client:visible />
+  </section>
+
+  <section id="contact" class="py-10 md:py-16">
+    <ContactUs client:visible />
+  </section>
 </Layout>

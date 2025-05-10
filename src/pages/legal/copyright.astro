@@ -1,0 +1,112 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CopyrightInfoPage from '../../components/legal/CopyrightInfoPage.tsx';
+
+const title = 'Copyright Information';
+const lastUpdated = 'May 15, 2023';
+const markdownContent = `
+# Copyright Information
+
+## Introduction
+
+SongWorld respects the intellectual property rights of others and expects its users to do the same. This Copyright Information document outlines how copyright applies to our service and your use of it.
+
+## Copyright of App Content
+
+### SongWorld-Owned Content
+
+The SongWorld application, including its design, logo, trademarks, and original content created by SongWorld, is protected by copyright and other intellectual property laws. All rights are reserved by SongWorld or its licensors.
+
+### Third-Party Content
+
+SongWorld may include third-party software, graphics, or other content that is subject to separate license terms. We acknowledge and respect the copyright of all third-party content used in our application.
+
+## User-Generated Content
+
+### Your Copyright
+
+When you create and upload original songs, lyrics, music, or recordings ("User Content") to SongWorld:
+
+* You retain full copyright of your original User Content
+* You grant SongWorld a limited license to store, display, and enable sharing of your User Content as described in our Terms of Service
+* You can remove your User Content at any time, which will terminate the license (except as needed for backups and legal compliance)
+
+### Copyright Representation
+
+By uploading User Content, you represent that:
+
+* You own all rights to the content, or
+* You have permission from the copyright owner, or
+* The content is in the public domain or available under a license that permits its use in SongWorld
+
+## Using SongWorld for Copyrighted Works
+
+### Personal Use
+
+SongWorld tools can be used to learn, practice, and perform copyrighted songs for personal, non-commercial use under fair use/fair dealing principles in many jurisdictions.
+
+### Limitations
+
+You may not use SongWorld to:
+
+* Distribute copyrighted works without permission
+* Create unauthorized derivative works for commercial purposes
+* Falsely claim authorship of copyrighted works
+* Circumvent digital rights management technologies
+
+## Copyright Infringement Claims
+
+### DMCA Compliance
+
+SongWorld complies with the Digital Millennium Copyright Act (DMCA) and similar copyright legislation worldwide. We will respond appropriately to notices of alleged copyright infringement.
+
+### Reporting Copyright Infringement
+
+If you believe your copyrighted work has been used on SongWorld without authorization, please submit a copyright infringement notification containing:
+
+1. Your physical or electronic signature
+2. Identification of the copyrighted work claimed to be infringed
+3. Identification of the material that is claimed to be infringing
+4. Your contact information
+5. A statement that you have a good faith belief that use of the material is not authorized
+6. A statement that the information is accurate and that you are authorized to act on behalf of the copyright owner
+
+Send copyright notices to: copyright@songworld.app
+
+### Counter Notification
+
+If you believe your content was removed due to a mistake or misidentification, you may submit a counter notification with:
+
+1. Your physical or electronic signature
+2. Identification of the material that was removed
+3. A statement under penalty of perjury that you have a good faith belief the material was removed by mistake
+4. Your contact information
+5. A statement that you consent to the jurisdiction of the federal court in your judicial district
+
+## Repeat Infringers
+
+We may restrict, suspend, or terminate the accounts of users who repeatedly infringe or are charged with repeatedly infringing the copyrights or other intellectual property rights of others.
+
+## Educational Resources
+
+We encourage all users to learn about copyright law. Some helpful resources include:
+
+* [U.S. Copyright Office](https://www.copyright.gov/)
+* [Creative Commons](https://creativecommons.org/)
+* [World Intellectual Property Organization](https://www.wipo.int/)
+
+## Changes to This Policy
+
+We may update this Copyright Information from time to time. We will notify you of any changes by posting the new policy on our website and updating the "Last Updated" date.
+
+## Contact Us
+
+If you have questions about copyright issues or this policy, please contact us at:
+
+Email: copyright@songworld.app
+`;
+---
+
+<Layout title={title} description="Song World Copyright Information">
+  <CopyrightInfoPage client:load title={title} lastUpdated={lastUpdated} markdownContent={markdownContent} />
+</Layout> 

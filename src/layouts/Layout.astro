@@ -1,22 +1,64 @@
+---
+import Navbar from '../components/Navbar.tsx';
+import GlobalBackgroundEffects from '../components/GlobalBackgroundEffects.tsx';
+import Footer from '../components/Footer.tsx';
+export interface Props {
+	title: string;
+	description: string;
+}
+
+const { title = 'Song World', description = 'Your Ultimate Songwriting Companion' } = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="en" class="light">
 	<head>
 		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
+		<style>
+			body {
+				padding-top: 4rem; /* For fixed navbar */
+			}
+			html {
+				scroll-behavior: smooth;
+			}
+		</style>
 	</head>
-	<body>
-		<slot />
+	<body class="bg-songworld-light-card text-songworld-light-text dark:bg-songworld-dark-card dark:text-songworld-dark-text transition-colors duration-300 ease-in-out font-nunito">
+		<Navbar client:load />
+		<GlobalBackgroundEffects client:load>
+		  <slot />
+		</GlobalBackgroundEffects>
+		<Footer client:visible />
 	</body>
 </html>
 
-<style>
+<style is:global>
 	html,
 	body {
 		margin: 0;
 		width: 100%;
-		height: 100%;
+		min-height: 100%;
+		font-family: 'Nunito', sans-serif;
 	}
+  html {
+    /* Custom music note cursor */
+    cursor: url('/assets/music-note-cursor.svg') 4 4, auto; /* 4 4 is the hotspot (x y) of the cursor */
+  }
+
+  /* Optionally, style links and buttons to use a different cursor or revert to pointer */
+  a,
+  button,
+  input[type="submit"],
+  input[type="button"],
+  [role="button"] {
+    cursor: pointer; /* Or url('/assets/pointer-cursor.svg') 12 0, pointer; if you have a custom pointer */
+  }
 </style>

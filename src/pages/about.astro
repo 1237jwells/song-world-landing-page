@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AboutUs from '../components/AboutUs.tsx';
+
+const pageTitle = "About Us | Song World";
+const pageDescription = "Learn more about Song World, our mission, and the team dedicated to helping musicians and songwriters.";
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <AboutUs client:load />
+</Layout> 
