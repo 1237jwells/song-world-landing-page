@@ -45,6 +45,32 @@ const MusicalElement = ({ children, delay, duration, initialX, initialY, targetY
   );
 };
 
+const SpaceParticle = ({ delay, duration, initialX, initialY, targetX, targetY, size }: {
+  delay: string;
+  duration: string;
+  initialX: string;
+  initialY: string;
+  targetX: string;
+  targetY: string;
+  size: string;
+}) => {
+  return (
+    <div
+      className="absolute bg-gray-600 dark:bg-white rounded-full opacity-40 dark:opacity-70 animate-drift"
+      style={{
+        animationDelay: delay,
+        animationDuration: duration,
+        left: initialX,
+        top: initialY,
+        width: size,
+        height: size,
+        ['--drift-x' as any]: `calc(${targetX} - ${initialX})`,
+        ['--drift-y' as any]: `calc(${targetY} - ${initialY})`,
+      } as React.CSSProperties}
+    />
+  );
+};
+
 const iconComponents: React.ElementType[] = [
   FaMusic, BsMusicNoteBeamed, BsMusicNoteList,
   BsSoundwave, GiMusicalScore, GiGClef, GiMusicalKeyboard,
@@ -122,14 +148,33 @@ const generateMusicalElements = (count: number): MusicalElementData[] => {
 
 const GlobalBackgroundEffects: React.FC<GlobalBackgroundEffectsProps> = ({ children }) => {
   const [musicalElementsData, setMusicalElementsData] = useState<MusicalElementData[]>([]);
+  const [spaceParticlesData, setSpaceParticlesData] = useState<any[]>([]);
 
   useEffect(() => {
-    setMusicalElementsData(generateMusicalElements(20)); // Generate 20 elements
+    setMusicalElementsData(generateMusicalElements(20)); // Generate 20 musical elements
+
+    // Generate a few space particles
+    const particles = [];
+    for (let i = 0; i < 10; i++) { // Add 10 particles
+      particles.push({
+        id: `sp-${i}`,
+        delay: `${Math.random() * 5}s`,
+        duration: `${Math.random() * 20 + 15}s`, // 15s to 35s
+        initialX: `${Math.random() * 100}%`,
+        initialY: `${Math.random() * 100}%`,
+        targetX: `${Math.random() * 100}%`,
+        targetY: `${Math.random() * 100}%`,
+        size: `${Math.random() * 2 + 1}px`, // 1px to 3px
+      });
+    }
+    setSpaceParticlesData(particles);
+
   }, []);
 
   return (
-    <div className="relative isolate"> {/* Changed: Main wrapper for stacking context and scrolling */}
-      <div className="absolute inset-0 opacity-25 dark:opacity-20 pointer-events-none"> {/* Removed z-[-1], increased opacity */}
+    <div className="relative isolate"> 
+      {/* Existing Musical Elements */}
+      <div className="absolute inset-0 opacity-15 dark:opacity-25 pointer-events-none">
         {musicalElementsData.map(el => (
           <MusicalElement
             key={el.id}
@@ -143,6 +188,41 @@ const GlobalBackgroundEffects: React.FC<GlobalBackgroundEffectsProps> = ({ child
           </MusicalElement>
         ))}
       </div>
+
+      {/* New Space Themed Background Elements */}
+      <div className="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
+        {/* Stars (Twinkling) */}
+        <div 
+          className="absolute inset-0 animate-twinkle opacity-30 dark:opacity-70"
+          style={{
+             backgroundImage: 'radial-gradient(1.5px 1.5px at 15% 25%, rgba(255, 255, 255, 0.7), transparent), radial-gradient(1px 1px at 35% 45%, rgba(255, 255, 255, 0.5), transparent), radial-gradient(2px 2px at 55% 75%, rgba(255, 255, 255, 0.6), transparent), radial-gradient(1px 1px at 5% 85%, rgba(255, 255, 255, 0.4), transparent), radial-gradient(1.5px 1.5px at 65% 15%, rgba(255, 255, 255, 0.7), transparent), radial-gradient(1px 1px at 85% 35%, rgba(255, 255, 255, 0.5), transparent), radial-gradient(1px 1px at 70% 60%, rgba(255,255,255,0.6), transparent), radial-gradient(1.5px 1.5px at 90% 80%, rgba(255,255,255,0.7), transparent)', 
+          }}
+        />
+        {/* Nebula Effect */}
+        <div 
+          className="absolute inset-0 opacity-20 dark:opacity-30"
+          style={{
+            width: '100%', 
+            height: '100%', 
+            backgroundImage: 'radial-gradient(ellipse at 70% 30%, rgba(120, 80, 220, 0.25), transparent 70%), radial-gradient(ellipse at 30% 70%, rgba(80, 180, 200, 0.25), transparent 70%)',
+            filter: 'blur(10px)', // Soften the nebula
+          }}
+        />
+        {/* Drifting Space Particles */}
+        {spaceParticlesData.map(p => (
+          <SpaceParticle
+            key={p.id}
+            delay={p.delay}
+            duration={p.duration}
+            initialX={p.initialX}
+            initialY={p.initialY}
+            targetX={p.targetX}
+            targetY={p.targetY}
+            size={p.size}
+          />
+        ))}
+      </div>
+
       {children} {/* Page content will be rendered here */}
     </div>
   );

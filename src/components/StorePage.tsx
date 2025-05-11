@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { FaHeart, FaBan, FaMusic, FaStar, FaUsersCog, FaFire, FaCheckCircle, FaAtlas, FaGlobeAmericas } from 'react-icons/fa';
-
+import cartoonSongWorldPayment from '../assets/song-world/transparent/AI-GEN/subscription_payment_square.png';
 // Subscription plans using react-icons
 const products = [
   {
     id: 1,
     name: 'Free',
     href: '#',
-    price: '$0',
+    price: '$0',  
     priceSuffix: '/forever',
     description: 'Limited access to Song World features.',
     features: ['Up to 15 songs', '0.25GB cloud storage', 'No AI features', '1 collaborator'],
@@ -125,9 +125,12 @@ const StorePage = () => {
     <div className="bg-songworld-light-card dark:bg-songworld-dark-card text-songworld-light-text dark:text-songworld-dark-text py-16 sm:py-24 overflow-hidden">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fadeInUp">
+          <div className="flex justify-center mb-12">
+            <img src={cartoonSongWorldPayment.src} alt="cartoonSongWorld" className="h-16 w-16 mr-4" />
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-songworld-light-primary dark:text-songworld-dark-primary mb-4">
             Song World Plans
           </h2>
+          </div>
           <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
             Choose the perfect plan to unlock your songwriting potential.
           </p>

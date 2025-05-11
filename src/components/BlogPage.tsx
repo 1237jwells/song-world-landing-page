@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-
+import cartoonSongWorldBlog from '../assets/song-world/transparent/AI-GEN/songwriter_icon_square.png';
 // Placeholder for individual blog post data
 const posts = [
   {
@@ -85,9 +85,13 @@ const BlogPage = () => {
           <div 
             ref={headerRef}
             className={`text-center mb-12 transition-all duration-1000 ease-out transform ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="flex justify-center mb-12">
+              <img src={cartoonSongWorldBlog.src} alt="cartoonSongWorld" className="h-16 w-16 mr-4" />
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-songworld-light-primary dark:text-songworld-dark-primary mb-4">
               Song World Blog
             </h2>
+            </div>
+
             <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
               Insights, tips, and stories for musicians and songwriters.
             </p>
