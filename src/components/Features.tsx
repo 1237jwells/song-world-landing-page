@@ -178,7 +178,7 @@ const Features = () => {
           </div>
 
           <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            Song World offers a unique blend of AI assistance, collaborative power, and integrated tools to elevate your music creation journey from spark to song.
+            Song World offers a unique blend of the best tools. It's like the Notes app with the features of Music Tablature, Chord Library, Media Library, Song Library, Collaboration, and there will be more to come.
           </p>
         </div>
 

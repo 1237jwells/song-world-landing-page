@@ -2,13 +2,14 @@
 import Navbar from '../components/Navbar.tsx';
 import GlobalBackgroundEffects from '../components/GlobalBackgroundEffects.tsx';
 import Footer from '../components/Footer.tsx';
+import CustomCursor from '../components/CustomCursor.tsx';
 import songWorldFavicon from '../assets/song-world/transparent/1x/icon_phone.png';
 export interface Props {
 	title: string;
 	description: string;
 }
 
-const { title = 'Song World', description = 'Your Ultimate Songwriting Companion' } = Astro.props;
+const { title = 'Song World', description = 'A World Just For You And Your Songs' } = Astro.props;
 ---
 
 <!doctype html>
@@ -33,6 +34,7 @@ const { title = 'Song World', description = 'Your Ultimate Songwriting Companion
 		</style>
 	</head>
 	<body class="bg-songworld-light-card text-songworld-light-text dark:bg-songworld-dark-card dark:text-songworld-dark-text transition-colors duration-300 ease-in-out font-nunito">
+		<CustomCursor client:only="react" />
 		<Navbar client:load />
 		<GlobalBackgroundEffects client:load>
 		  <slot />
@@ -50,16 +52,23 @@ const { title = 'Song World', description = 'Your Ultimate Songwriting Companion
 		font-family: 'Nunito', sans-serif;
 	}
   html {
-    /* Custom music note cursor */
-    cursor: url('/assets/music-note-cursor.svg') 4 4, auto; /* 4 4 is the hotspot (x y) of the cursor */
+    cursor: none; /* Hide default system cursor */
+    --cursor-color: black; /* Define CSS variable for light mode cursor */
   }
 
-  /* Optionally, style links and buttons to use a different cursor or revert to pointer */
+  html.dark {
+    cursor: none; /* Hide default system cursor */
+    --cursor-color: white; /* Define CSS variable for dark mode cursor */
+  }
+
+  /* Keep this for interactive elements to show a pointer,
+     or remove if custom cursor will handle all hover states.
+     For now, the custom dot will overlay it. */
   a,
   button,
   input[type="submit"],
   input[type="button"],
   [role="button"] {
-    cursor: pointer; /* Or url('/assets/pointer-cursor.svg') 12 0, pointer; if you have a custom pointer */
+    cursor: pointer; 
   }
 </style>

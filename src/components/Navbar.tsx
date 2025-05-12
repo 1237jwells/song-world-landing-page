@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { FaSun, FaMoon, FaRocket, FaMusic, FaSignInAlt } from 'react-icons/fa';
-// Import both logo versions
-import logoLight from '../assets/song-world/transparent/1x/icon_phone.png';
-import logoDark from '../assets/song-world/transparent/1x/icon_phone.png';
+import headLight from '../assets/song-world/phone_light_2mdpi.png';
+import headDark from '../assets/song-world/phone_dark_2mdpi.png';
 
 const Navbar = () => {
   const [theme, setTheme] = useState('light');
-  const [currentLogo, setCurrentLogo] = useState(logoLight.src);
+  const [currentLogo, setCurrentLogo] = useState(headLight.src);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
@@ -17,10 +16,10 @@ const Navbar = () => {
     setTheme(savedTheme);
     if (savedTheme === 'dark') {
       document.documentElement.classList.add('dark');
-      setCurrentLogo(logoDark.src);
+      setCurrentLogo(headDark.src);
     } else {
       document.documentElement.classList.remove('dark');
-      setCurrentLogo(logoLight.src);
+      setCurrentLogo(headLight.src);
     }
 
     // Scroll effect
@@ -62,10 +61,10 @@ const Navbar = () => {
     localStorage.setItem('theme', newTheme);
     if (newTheme === 'dark') {
       document.documentElement.classList.add('dark');
-      setCurrentLogo(logoDark.src);
+      setCurrentLogo(headDark.src);
     } else {
       document.documentElement.classList.remove('dark');
-      setCurrentLogo(logoLight.src);
+      setCurrentLogo(headLight.src);
     }
   };
 

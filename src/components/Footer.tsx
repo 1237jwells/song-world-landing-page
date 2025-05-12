@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaTwitter, FaFacebookF, FaInstagram, FaLinkedinIn, FaEnvelope, FaPaperPlane, FaMusic, FaRegLightbulb, FaRegCopyright, FaYoutube } from 'react-icons/fa';
-import logoLight from '../assets/song-world/transparent/1x/icon_phone.png';
-import logoDark from '../assets/song-world/transparent/1x/icon_phone.png';
+import logoLight from '../assets/song-world/phone_light_2mdpi.png';
+import logoDark from '../assets/song-world/phone_dark_2mdpi.png';
 
 const Footer = () => {
   const [currentLogo, setCurrentLogo] = useState(logoLight.src);

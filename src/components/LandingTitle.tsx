@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { FaRocket } from 'react-icons/fa';
-import logoLight from '../assets/song-world/transparent/3x/main_title_icon_light.png';
-import logoDark from '../assets/song-world/transparent/3x/main_title_icon_dark.png';
+import songTitleLight from '../assets/song-world/Song_World_Title_Lightxxxhdpi.png';
+import songTitleDark from '../assets/song-world/Song_World_Title_Darkxxxhdpi.png';
 import cartoonSongWorld from '../assets/song-world/transparent/AI-GEN/home_icon_square.png';
 import GlobalBackgroundEffects from './GlobalBackgroundEffects';
 // Simple SVG for abstract piano keys
@@ -20,27 +20,27 @@ const PianoKeys = ({ className }: { className?: string }) => (
 // Simple SVG for abstract guitar tablature
 const GuitarTab = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 100 20" className={`w-20 h-5 md:w-24 md:h-6 opacity-70 ${className}`}>
-    {[0, 5, 10, 15, 20].map(y => 
+    {[0, 5, 10, 15, 20].map(y =>
       <line key={y} x1="0" y1={y} x2="100" y2={y} stroke="currentColor" strokeWidth="0.5" className="text-gray-500 dark:text-gray-400" />
     )}
-    <circle cx="20" cy="7.5" r="2" fill="currentColor" className="text-gray-700 dark:text-gray-200"/>
-    <circle cx="50" cy="12.5" r="2" fill="currentColor" className="text-gray-700 dark:text-gray-200"/>
-    <circle cx="80" cy="2.5" r="2" fill="currentColor" className="text-gray-700 dark:text-gray-200"/>
+    <circle cx="20" cy="7.5" r="2" fill="currentColor" className="text-gray-700 dark:text-gray-200" />
+    <circle cx="50" cy="12.5" r="2" fill="currentColor" className="text-gray-700 dark:text-gray-200" />
+    <circle cx="80" cy="2.5" r="2" fill="currentColor" className="text-gray-700 dark:text-gray-200" />
   </svg>
 );
 
 const MAIN_HEADLINE_FULL = "Song World: A World Just For You And Your Songs";
-const SUB_HEADLINE_FULL = "Spark creativity, conquer blocks, and produce music effortlessly... yes we even use AI";
-const PARAGRAPH_FULL = "Tired of creative ruts and juggling multiple apps? Song World is your AI-powered partner, revolutionizing how you write, collaborate, and produce music. We provide intelligent tools to ignite your ideas and a seamless platform to bring them to life with anyone, anywhere. Create more, struggle less.";
+const SUB_HEADLINE_FULL = "An all in one application for songwriting tools, song management, collaboration and creativity... and yes we use AI!";
+const PARAGRAPH_FULL = "We will help you avoid writer's block and the chaos of managing the lyrics, recordings, and ideas that you really need to store somewhere to remember that great idea. Song World offers this and more, an AI-powered music creation partner, cloud storage, intelligent tools to revolutionize your songwriting, collaboration, and production. It's your world, your songs!.";
 
 const MAIN_HEADLINE_TYPING_SPEED = 130;
 const SUB_HEADLINE_TYPING_SPEED = 70;
 
 const CURSOR_DISAPPEAR_DELAY = 2500;
-const STAGE_TRANSITION_DELAY = 300; 
+const STAGE_TRANSITION_DELAY = 300;
 const AI_BUTTON_APPEAR_DELAY = 1000; // Delay before AI button appears
-const THINKING_ANIMATION_PER_STAGE_DURATION = 3000; // Increased from 2500
-const THINKING_STAGES_TEXT = [ 
+const THINKING_ANIMATION_PER_STAGE_DURATION = 4000; // Increased from 2500
+const THINKING_STAGES_TEXT = [
   "Initiating Sonic Algorithm: Warming up the digital band...",
   "Neural Jam Session: Syncing with the rhythm of your muse...",
   "Harmonic Processing Unit: Calculating the ultimate riff...",
@@ -64,9 +64,9 @@ const THINKING_STAGES_TEXT = [
 ];
 
 const LandingTitle = () => {
-  const [currentLogo, setCurrentLogo] = useState(logoLight.src);
+  const [currentLogo, setCurrentLogo] = useState(songTitleLight.src);
   const [animationStage, setAnimationStage] = useState(0); // 0:initial, 1:mainH, 2:subH, 3:think1, 4:think2, 5:think3, 6:para, 7:buttons+logo
-  
+
   const [mainHeadlineDisplayed, setMainHeadlineDisplayed] = useState('');
   const [subHeadlineDisplayed, setSubHeadlineDisplayed] = useState('');
   const [paragraphDisplayed, setParagraphDisplayed] = useState('');
@@ -87,10 +87,10 @@ const LandingTitle = () => {
   useEffect(() => {
     const root = document.documentElement;
     const observer = new MutationObserver(() => {
-      setCurrentLogo(root.classList.contains('dark') ? logoDark.src : logoLight.src);
+      setCurrentLogo(root.classList.contains('dark') ? songTitleDark.src : songTitleLight.src);
     });
     observer.observe(root, { attributes: true, attributeFilter: ['class'] });
-    setCurrentLogo(root.classList.contains('dark') ? logoDark.src : logoLight.src);
+    setCurrentLogo(root.classList.contains('dark') ? songTitleDark.src : songTitleLight.src);
     return () => observer.disconnect();
   }, []);
 
@@ -146,7 +146,7 @@ const LandingTitle = () => {
       let dotCount = 0;
       const currentThinkingStageIndex = animationStage - 3;
       const currentThinkingBaseText = selectedThinkingTexts[currentThinkingStageIndex] || THINKING_STAGES_TEXT[currentThinkingStageIndex];
-      
+
       // Immediately set the full text for the current stage
       setGenericThinkingTextDisplayed(currentThinkingBaseText);
 
@@ -198,9 +198,9 @@ const LandingTitle = () => {
   if (animationStage === 0) {
     logoContainerClasses += " opacity-0 scale-150";
   } else if (animationStage >= 1 && animationStage < 7) { // Visible until stage 7
-    logoContainerClasses += " opacity-100 scale-150"; 
+    logoContainerClasses += " opacity-100 scale-150";
   } else if (animationStage >= 7) { // Interactive at stage 7
-    logoContainerClasses += " opacity-100 scale-150 pointer-events-auto"; 
+    logoContainerClasses += " opacity-100 scale-150 pointer-events-auto";
   }
 
   return (
@@ -209,10 +209,10 @@ const LandingTitle = () => {
         id="hero"
         className="relative text-songworld-light-text dark:text-songworld-dark-text min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center overflow-hidden pt-8 pb-12 md:pb-16"
       >
-        <div 
+        <div
           className="absolute inset-0 opacity-40 dark:opacity-30 animate-breathingBackground bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-songworld-light-primary/40 via-transparent to-transparent dark:from-songworld-dark-primary/40 dark:via-transparent dark:to-transparent"
         ></div>
-        
+
         {/* Space Background Effects - These will be moved to GlobalBackgroundEffects.tsx */}
         {/* The div below containing the SVG grid, stars, nebula, and particles will be removed from here. */}
 
@@ -233,26 +233,28 @@ const LandingTitle = () => {
             </span>
           </div>
 
-          {/* AI Button */}
-          <div className={`transition-opacity duration-500 ease-in-out mt-4 md:mt-6 ${showAIButton ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}> 
-            <button 
-              onClick={handleAIButtonClick}
-              className="px-6 py-2 text-base font-semibold text-white bg-songworld-light-accent dark:bg-songworld-dark-accent rounded-lg shadow-lg hover:bg-opacity-90 dark:hover:bg-opacity-90 transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-songworld-light-card dark:focus:ring-offset-songworld-dark-card focus:ring-songworld-light-accent dark:focus:ring-songworld-dark-accent"
-              disabled={!showAIButton}
-            >
-              Enable AI Magic
-            </button>
-          </div>
-   
-          <div className={`transition-opacity duration-300 ease-in-out min-h-[2rem] mt-4 md:mt-6 ${(animationStage >= 3 && animationStage <= 5) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}> 
-            {(animationStage >= 3 && animationStage <= 5) && (
-              <div className="bg-songworld-light-card dark:bg-songworld-dark-card p-4 rounded-lg shadow-md max-w-lg mx-auto">
-                <p className="text-lg sm:text-xl text-songworld-light-text/80 dark:text-songworld-dark-text/80 italic">
-                  {genericThinkingTextDisplayed}
-                </p>
-              </div>
-            )}
-          </div>
+          {animationStage == 2 && (
+            <div className={`transition-opacity duration-500 ease-in-out mt-4 md:mt-6 ${showAIButton ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+              <button
+                onClick={handleAIButtonClick}
+                className="px-6 py-2 text-base font-semibold text-white bg-songworld-light-accent dark:bg-songworld-dark-accent rounded-lg shadow-lg hover:bg-opacity-90 dark:hover:bg-opacity-90 transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-songworld-light-card dark:focus:ring-offset-songworld-dark-card focus:ring-songworld-light-accent dark:focus:ring-songworld-dark-accent"
+                disabled={!showAIButton}
+              >
+                Enable AI Magic
+              </button>
+            </div>
+          )}
+          {animationStage <= 6 && animationStage >= 3 && (
+            <div className={`transition-opacity duration-300 ease-in-out min-h-[2rem] mt-4 md:mt-6 ${(animationStage >= 3 && animationStage <= 5) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+              {(animationStage >= 3 && animationStage <= 5) && (
+                <div className="bg-songworld-light-card dark:bg-songworld-dark-card p-4 rounded-lg shadow-md max-w-lg mx-auto">
+                  <p className="text-lg sm:text-xl text-songworld-light-text/80 dark:text-songworld-dark-text/80 italic">
+                    {genericThinkingTextDisplayed}
+                  </p>
+                </div>
+              )}
+            </div>
+          )}
 
           <div className={`transition-opacity duration-300 ease-in-out mt-4 md:mt-6 ${(animationStage >= 6) ? 'opacity-100' : 'opacity-0 pointer-events-none'} min-h-[10rem]`} style={{ animationDelay: animationStage === 6 ? '0.1s' : '0s' }}>
             {/* Render p tag only when its container is meant to be visible to help with transitions */}
@@ -263,12 +265,12 @@ const LandingTitle = () => {
             )}
           </div>
 
-          <div 
+          <div
             className={`mt-10 md:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 transition-opacity duration-500 ease-in-out 
                         ${animationStage >= 7 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
             style={{ transitionDelay: animationStage >= 7 ? '0.2s' : '0s' }}
           >
-            <a 
+            <a
               href="https://songworld.app/login"
               className="group relative inline-flex items-center justify-center w-full sm:w-auto px-8 py-3 text-base font-bold text-white bg-songworld-light-primary dark:bg-songworld-dark-primary rounded-lg shadow-xl hover:bg-opacity-90 dark:hover:bg-opacity-90 transform transition-all duration-300 ease-in-out hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-songworld-light-card dark:focus:ring-offset-songworld-dark-card focus:ring-songworld-light-accent dark:focus:ring-songworld-dark-accent"
             >
@@ -281,11 +283,11 @@ const LandingTitle = () => {
             </a>
           </div>
         </div>
-              
-        
-        <div 
-          className={logoContainerClasses} 
-          style={{ animationDelay: animationStage >=7 ? '0.1s' : '0s' }}
+
+
+        <div
+          className={logoContainerClasses}
+          style={{ animationDelay: animationStage >= 7 ? '0.1s' : '0s' }}
         >
           <img src={currentLogo} alt="Song World Logo" className="h-24 w-auto sm:h-32 md:h-40" />
         </div>
