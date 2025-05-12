@@ -3,14 +3,10 @@ import {
   FaMusic
 } from 'react-icons/fa';
 import {
-  BsMusicNoteBeamed,
-  BsMusicNoteList,
-  BsSoundwave
+  BsMusicNoteBeamed, BsMusicNoteList, BsSoundwave
 } from 'react-icons/bs';
 import {
-  GiMusicalScore,
-  GiGClef,
-  GiMusicalKeyboard
+  GiMusicalScore, GiGClef, GiMusicalKeyboard
 } from 'react-icons/gi';
 import { IoMusicalNotesSharp } from 'react-icons/io5';
 import { RiMusic2Line } from 'react-icons/ri';
@@ -172,7 +168,7 @@ const GlobalBackgroundEffects: React.FC<GlobalBackgroundEffectsProps> = ({ child
   }, []);
 
   return (
-    <div className="relative isolate"> 
+    <div className="relative isolate overflow-hidden"> 
       {/* Existing Musical Elements */}
       <div className="absolute inset-0 opacity-15 dark:opacity-25 pointer-events-none">
         {musicalElementsData.map(el => (
@@ -199,15 +195,8 @@ const GlobalBackgroundEffects: React.FC<GlobalBackgroundEffectsProps> = ({ child
           }}
         />
         {/* Nebula Effect */}
-        <div 
-          className="absolute inset-0 opacity-20 dark:opacity-30"
-          style={{
-            width: '100%', 
-            height: '100%', 
-            backgroundImage: 'radial-gradient(ellipse at 70% 30%, rgba(120, 80, 220, 0.25), transparent 70%), radial-gradient(ellipse at 30% 70%, rgba(80, 180, 200, 0.25), transparent 70%)',
-            filter: 'blur(10px)', // Soften the nebula
-          }}
-        />
+        <div className="absolute top-1/4 left-1/4 w-1/2 h-1/2 bg-gradient-radial from-blue-400/20 via-purple-400/10 to-transparent rounded-full blur-3xl animate-pulse-slow opacity-40 dark:opacity-70" />
+        <div className="absolute bottom-1/4 right-1/4 w-1/3 h-1/3 bg-gradient-radial from-pink-400/20 via-indigo-400/10 to-transparent rounded-full blur-3xl animate-pulse-slower opacity-30 dark:opacity-60" />
         {/* Drifting Space Particles */}
         {spaceParticlesData.map(p => (
           <SpaceParticle

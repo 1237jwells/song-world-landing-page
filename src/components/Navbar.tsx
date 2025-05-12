@@ -70,11 +70,11 @@ const Navbar = () => {
 
   const navLinks = [
     { href: '/', label: 'Home', icon: FaMusic, sectionId: 'hero' },
-    { href: '#features', label: 'Features', sectionId: 'features' },
-    { href: '#about', label: 'About Us', sectionId: 'about' },
-    { href: '#blog', label: 'Blog', sectionId: 'blog' },
-    { href: '#store', label: 'Store', sectionId: 'store' },
-    { href: '#contact', label: 'Contact', sectionId: 'contact' },
+    { href: '/#features', label: 'Features', sectionId: 'features' },
+    { href: '/#about', label: 'About Us', sectionId: 'about' },
+    { href: '/#blog', label: 'Blog', sectionId: 'blog' },
+    { href: '/#store', label: 'Store', sectionId: 'store' },
+    { href: '/#contact', label: 'Contact', sectionId: 'contact' },
   ];
 
   return (
@@ -110,7 +110,7 @@ const Navbar = () => {
             {navLinks.map((link) => (
               <a 
                 key={link.label}
-                href={link.href} 
+                href={link.href}
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 
                   ${activeSection === link.sectionId 
                     ? 'text-songworld-light-primary dark:text-songworld-dark-primary font-bold scale-105' 
@@ -118,11 +118,6 @@ const Navbar = () => {
                   }`}
                 onClick={() => {
                   setMobileMenuOpen(false);
-                  // If it's a hash link, manually set active section and scroll smoothly
-                  if (link.href.startsWith('#')) {
-                    setActiveSection(link.sectionId);
-                  }
-                  // For '/', router will handle navigation, active state relies on scroll
                 }}
               >
                 {link.label}
@@ -186,9 +181,6 @@ const Navbar = () => {
                 }`}
               onClick={() => {
                 setMobileMenuOpen(false);
-                if (link.href.startsWith('#')) {
-                  setActiveSection(link.sectionId);
-                }
               }}
             >
               {link.label}

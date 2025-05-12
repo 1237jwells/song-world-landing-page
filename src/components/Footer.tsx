@@ -30,12 +30,12 @@ const Footer = () => {
   };
 
   const navLinks = [
-    { href: '#hero', label: 'Home' },
-    { href: '#features', label: 'Features' },
-    { href: '#about', label: 'About' },
-    { href: '#blog', label: 'Blog' },
-    { href: '#store', label: 'Store' },
-    { href: '#contact', label: 'Contact' },
+    { href: '/', label: 'Home' },
+    { href: '/#features', label: 'Features' },
+    { href: '/#about', label: 'About' },
+    { href: '/#blog', label: 'Blog' },
+    { href: '/#store', label: 'Store' },
+    { href: '/#contact', label: 'Contact' },
   ];
 
   const legalLinks = [
@@ -172,10 +172,10 @@ const Footer = () => {
             </p>
           </div>
           <div className="flex space-x-6">
-            <a href="#features" className="text-sm flex items-center hover:text-songworld-light-accent dark:hover:text-songworld-dark-accent transition-colors duration-200">
+            <a href="/#features" className="text-sm flex items-center hover:text-songworld-light-accent dark:hover:text-songworld-dark-accent transition-colors duration-200">
               <FaMusic className="mr-1.5 h-4 w-4" /> Our Mission
             </a>
-            <a href="#about" className="text-sm flex items-center hover:text-songworld-light-accent dark:hover:text-songworld-dark-accent transition-colors duration-200">
+            <a href="/#about" className="text-sm flex items-center hover:text-songworld-light-accent dark:hover:text-songworld-dark-accent transition-colors duration-200">
               <FaRegLightbulb className="mr-1.5 h-4 w-4" /> Our Story
             </a>
           </div>
