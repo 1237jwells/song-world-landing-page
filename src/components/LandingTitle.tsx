@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { FaRocket } from 'react-icons/fa';
-import songTitleLight from '../assets/song-world/Song_World_Title_Lightxxxhdpi.png';
-import songTitleDark from '../assets/song-world/Song_World_Title_Darkxxxhdpi.png';
+import songTitleLight from '../assets/song-world/FinalFullTitlexxxhdpi.png';
+import songTitleDark from '../assets/song-world/FinalFullTitleDarkxxxhdpi.png';
 import cartoonSongWorld from '../assets/song-world/transparent/AI-GEN/home_icon_square.png';
 import GlobalBackgroundEffects from './GlobalBackgroundEffects';
 // Simple SVG for abstract piano keys

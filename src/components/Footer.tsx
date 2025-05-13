@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaTwitter, FaFacebookF, FaInstagram, FaLinkedinIn, FaEnvelope, FaPaperPlane, FaMusic, FaRegLightbulb, FaRegCopyright, FaYoutube } from 'react-icons/fa';
-import logoLight from '../assets/song-world/phone_light_2mdpi.png';
-import logoDark from '../assets/song-world/phone_dark_2mdpi.png';
+import logoLight from '../assets/song-world/final_phone_icon_lightxxxhdpi.png';
+import logoDark from '../assets/song-world/final_phone_icon_darkxxxhdpi.png';
 
 const Footer = () => {
   const [currentLogo, setCurrentLogo] = useState(logoLight.src);
@@ -34,7 +34,8 @@ const Footer = () => {
     { href: '/#features', label: 'Features' },
     { href: '/#about', label: 'About' },
     { href: '/#blog', label: 'Blog' },
-    { href: '/#store', label: 'Store' },
+    { href: '/#plans', label: 'Plans' },
+    { href: '/#merch', label: 'Merch' },
     { href: '/#contact', label: 'Contact' },
   ];
 

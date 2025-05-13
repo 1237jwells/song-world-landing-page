@@ -89,7 +89,7 @@ const products = [
   },
 ];
 
-const StorePage = () => {
+const Plans = () => {
   const [visibleCards, setVisibleCards] = useState<Record<number, boolean>>({});
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -201,4 +201,4 @@ const StorePage = () => {
   );
 };
 
-export default StorePage; 
+export default Plans; 

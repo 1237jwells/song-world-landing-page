@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaSun, FaMoon, FaRocket, FaMusic, FaSignInAlt } from 'react-icons/fa';
-import headLight from '../assets/song-world/phone_light_2mdpi.png';
-import headDark from '../assets/song-world/phone_dark_2mdpi.png';
+import headLight from '../assets/song-world/final_phone_icon_lightxxxhdpi.png';
+import headDark from '../assets/song-world/final_phone_icon_darkxxxhdpi.png';
 
 const Navbar = () => {
   const [theme, setTheme] = useState('light');
@@ -73,7 +73,8 @@ const Navbar = () => {
     { href: '/#features', label: 'Features', sectionId: 'features' },
     { href: '/#about', label: 'About Us', sectionId: 'about' },
     { href: '/#blog', label: 'Blog', sectionId: 'blog' },
-    { href: '/#store', label: 'Store', sectionId: 'store' },
+    { href: '/#plans', label: 'Plans', sectionId: 'plans' },
+    { href: '/#merch', label: 'Merch', sectionId: 'merch' },
     { href: '/#contact', label: 'Contact', sectionId: 'contact' },
   ];
 

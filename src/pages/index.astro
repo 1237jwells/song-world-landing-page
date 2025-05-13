@@ -4,8 +4,11 @@ import LandingTitle from '../components/LandingTitle.tsx';
 import Features from '../components/Features.tsx';
 import AboutUs from '../components/AboutUs.tsx';
 import BlogPage from '../components/BlogPage.tsx';
-import StorePage from '../components/StorePage.tsx';
+import StorePage from '../components/Plans.tsx';
 import ContactUs from '../components/ContactUs.tsx';
+import PaymentsPage from '../components/Plans.tsx';
+import Plans from '../components/Plans.tsx';
+import MerchDisplay from '../components/MerchDisplay.tsx';
 
 const pageTitle = "Song World | A World Just For You & Your Songs";
 const pageDescription = "Capture, craft, and perfect your songs with Song World. The intuitive SaaS platform for musicians and artists, blending note-taking with powerful songwriting tools.";
@@ -32,8 +35,12 @@ const pageDescription = "Capture, craft, and perfect your songs with Song World.
     <BlogPage client:visible />
   </section>
 
-  <section id="store" class="py-10 md:py-16">
-    <StorePage client:visible />
+  <section id="plans" class="py-10 md:py-16">
+    <Plans client:visible />
+  </section>
+
+  <section id="merch" class="py-16 md:py-24 bg-songworld-light-card/50 dark:bg-songworld-dark-card/50">
+    <MerchDisplay client:visible />
   </section>
 
   <section id="contact" class="py-10 md:py-16">
