@@ -31,7 +31,7 @@ const GuitarTab = ({ className }: { className?: string }) => (
 
 const MAIN_HEADLINE_FULL = "Song World: A World Just For You And Your Songs";
 const SUB_HEADLINE_FULL = "An all in one application for songwriting tools, song management, collaboration and creativity... and yes we use AI!";
-const PARAGRAPH_FULL = "We will help you avoid writer's block and the chaos of managing the lyrics, recordings, and ideas that you really need to store somewhere to remember that great idea. Song World offers this and more, an AI-powered music creation partner, cloud storage, intelligent tools to revolutionize your songwriting, collaboration, and production. It's your world, your songs!.";
+const PARAGRAPH_FULL = "We will help you avoid writer's block and the chaos of managing the lyrics, recordings, and ideas that you really need to store somewhere to remember that great idea. Song World offers this and more, an AI-powered music creation partner, cloud storage, intelligent tools to revolutionize your songwriting, collaboration, and production. It's your world, your songs!";
 
 const MAIN_HEADLINE_TYPING_SPEED = 130;
 const SUB_HEADLINE_TYPING_SPEED = 70;
@@ -192,7 +192,6 @@ const LandingTitle = () => {
   }, [animationStage, paragraphWords, currentParagraphWordIndex]);
 
   const isCurrentlyTypingMain = animationStage === 1 && mainHeadlineDisplayed.length < MAIN_HEADLINE_FULL.length;
-  const isCurrentlyTypingSub = animationStage === 2 && subHeadlineDisplayed.length < SUB_HEADLINE_FULL.length;
 
   let logoContainerClasses = "relative z-10 mt-12 md:mt-16 transition-opacity duration-500 ease-in-out pointer-events-none transform";
   if (animationStage === 0) {
@@ -216,10 +215,10 @@ const LandingTitle = () => {
         {/* Space Background Effects - These will be moved to GlobalBackgroundEffects.tsx */}
         {/* The div below containing the SVG grid, stars, nebula, and particles will be removed from here. */}
 
-        <div className="relative z-10 mx-auto max-w-screen-xl px-4 w-full text-center flex flex-col items-center flex-grow justify-center">
+        <div className="relative max-w-screen-xl w-full text-center flex flex-col items-center flex-grow justify-center">
           <div className={`animate-fadeInUp ${animationStage === 0 ? 'opacity-0' : 'opacity-100'}`} style={{ animationDelay: '0.1s' }}>
-            <div className="inline-block min-h-[100px] sm:min-h-[140px] lg:min-h-[180px]">
-              <h1 className="text-4xl font-extrabold sm:text-5xl lg:text-6xl leading-tight bg-gradient-to-r from-songworld-light-primary via-songworld-light-accent to-green-400 dark:from-songworld-dark-primary dark:via-songworld-dark-accent dark:to-green-500 bg-clip-text text-transparent pb-2">
+            <div className="inline-block min-h-[100px] sm:min-h-[100px] lg:min-h-[140px]">
+              <h1 className="text-4xl font-extrabold sm:text-5xl lg:text-6xl leading-tight bg-gradient-to-r from-songworld-light-accent via-green-400 to-yellow-400 dark:from-songworld-dark-accent dark:via-green-500 dark:to-lime-400 bg-clip-text text-transparent pb-2">
                 {mainHeadlineDisplayed}
                 {(showMainHeadlineCursor || isCurrentlyTypingMain) && <span className="inline-block align-bottom animate-caret-blink text-songworld-light-text dark:text-songworld-dark-text">|</span>}
               </h1>
@@ -227,7 +226,7 @@ const LandingTitle = () => {
           </div>
 
           <div className={`transition-opacity duration-300 ease-in-out ${animationStage >= 2 ? 'opacity-100' : 'opacity-0 pointer-events-none'} min-h-[5rem]`} style={{ animationDelay: '0.1s' }}>
-            <span className="block mt-1 sm:mt-2 font-semibold text-songworld-light-text/80 dark:text-songworld-dark-text/80 text-xl sm:text-2xl lg:text-3xl">
+            <span className="block mt-1 font-semibold text-songworld-light-text/80 dark:text-songworld-dark-text/80 text-xl sm:text-2xl lg:text-3xl">
               {subHeadlineDisplayed}
               {showSubHeadlineCursor && <span className="inline-block align-bottom animate-caret-blink text-songworld-light-text dark:text-songworld-dark-text">|</span>}
             </span>
@@ -245,7 +244,7 @@ const LandingTitle = () => {
             </div>
           )}
           {animationStage <= 6 && animationStage >= 3 && (
-            <div className={`transition-opacity duration-300 ease-in-out min-h-[2rem] mt-4 md:mt-6 ${(animationStage >= 3 && animationStage <= 5) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+            <div className={`transition-opacity duration-300 ease-in-out ${(animationStage >= 3 && animationStage <= 5) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
               {(animationStage >= 3 && animationStage <= 5) && (
                 <div className="bg-songworld-light-card dark:bg-songworld-dark-card p-4 rounded-lg shadow-md max-w-lg mx-auto">
                   <p className="text-lg sm:text-xl text-songworld-light-text/80 dark:text-songworld-dark-text/80 italic">
@@ -275,7 +274,7 @@ const LandingTitle = () => {
               className="group relative inline-flex items-center justify-center w-full sm:w-auto px-8 py-3 text-base font-bold text-white bg-songworld-light-primary dark:bg-songworld-dark-primary rounded-lg shadow-xl hover:bg-opacity-90 dark:hover:bg-opacity-90 transform transition-all duration-300 ease-in-out hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-songworld-light-card dark:focus:ring-offset-songworld-dark-card focus:ring-songworld-light-accent dark:focus:ring-songworld-dark-accent"
             >
               {/* <FaRocket className="mr-2 h-5 w-5" />  */}
-              <img src={cartoonSongWorld.src} alt="cartoonSongWorld" className="mr-2 h-10 w-10" />
+              {/* <img src={cartoonSongWorld.src} alt="cartoonSongWorld" className="mr-2 h-10 w-10" /> */}
               Start Your Musical Journey
             </a>
             <a href="#about" className="group relative inline-flex items-center justify-center w-full sm:w-auto px-8 py-3 text-base font-bold text-songworld-light-primary dark:text-songworld-dark-primary bg-transparent border-2 border-songworld-light-primary dark:border-songworld-dark-primary rounded-lg shadow-lg hover:bg-songworld-light-primary/10 dark:hover:bg-songworld-dark-primary/20 transform transition-all duration-300 ease-in-out hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-songworld-light-card dark:focus:ring-offset-songworld-dark-card focus:ring-songworld-light-primary dark:focus:ring-songworld-dark-primary">

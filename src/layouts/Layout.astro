@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar.tsx';
 import GlobalBackgroundEffects from '../components/GlobalBackgroundEffects.tsx';
 import Footer from '../components/Footer.tsx';
 import CustomCursor from '../components/CustomCursor.tsx';
-import songWorldFavicon from '../assets/song-world/transparent/1x/icon_phone.png';
+import songWorldFavicon from '../assets/song-world/final_phone_icon_lightxxxhdpi.png';
 export interface Props {
 	title: string;
 	description: string;
@@ -26,7 +26,7 @@ const { title = 'Song World', description = 'A World Just For You And Your Songs
 		<title>{title}</title>
 		<style>
 			body {
-				padding-top: 4rem; /* For fixed navbar */
+				padding-top: 4rem;
 			}
 			html {
 				scroll-behavior: smooth;
@@ -40,6 +40,45 @@ const { title = 'Song World', description = 'A World Just For You And Your Songs
 		  <slot />
 		</GlobalBackgroundEffects>
 		<Footer client:visible />
+
+		<script>
+		  document.addEventListener('astro:page-load', () => {
+		    const hostname = window.location.hostname;
+
+		    const potentialSubdomain = hostname.split('.')[0];
+
+		    const subdomainToSectionId = {
+		      'landing': 'hero',
+		      'store': 'merch',
+		      'blog': 'blog',
+		      'about': 'about',
+		      'www': 'hero'
+		    };
+
+		    const targetId = subdomainToSectionId[potentialSubdomain as keyof typeof subdomainToSectionId];
+		    if (targetId) {
+		      const targetElement = document.getElementById(targetId);
+
+		      if (targetElement) {
+		        // Increased timeout slightly
+		        setTimeout(() => {		          
+		          const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+		          const navbarOffset = 4 * rootFontSize;
+
+		          const elementRect = targetElement.getBoundingClientRect();
+		          const absoluteElementTop = elementRect.top + window.scrollY;
+		          const scrollToPosition = absoluteElementTop - navbarOffset;		          
+		          window.scrollTo({
+		            top: scrollToPosition,
+		            behavior: 'smooth'
+		          });
+		        }, 200); // Increased timeout to 200ms
+		      } else {
+		        console.warn(`[SubdomainScroll] Target element with ID '${targetId}' not found for subdomain '${potentialSubdomain}'.`);
+		      }
+		    }
+		  });
+		</script>
 	</body>
 </html>
 

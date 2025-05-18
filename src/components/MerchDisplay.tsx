@@ -1,5 +1,5 @@
 import React from 'react';
-
+import merchIcon from '../assets/song-world/transparent/AI-GEN/merch_icon_square.png';
 // Define the type for a single merchandise item
 interface MerchItem {
   id: number;
@@ -54,6 +54,13 @@ const merchItems: MerchItem[] = [
 const MerchDisplay: React.FC<MerchDisplayProps> = ({ title = "Official Merch" }) => {
   return (
     <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="flex justify-center mb-8">
+        <img 
+          src={merchIcon.src} 
+          alt="Merch Icon" 
+          className="h-32 w-32 sm:h-40 sm:w-40 lg:h-48 lg:w-48"
+        />
+      </div>
       <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-center text-songworld-light-primary dark:text-songworld-dark-primary mb-16">
         {title}
       </h2>
